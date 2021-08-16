@@ -1,0 +1,102 @@
+.NameTicker-container {
+  display: flex;
+  align-items: center; 
+  padding-right: 100%;
+  width: max-content;
+  animation-iteration-count: infinite;
+  animation-name: ticker;
+  animation-duration: 40s;
+ 
+  animation-timing-function: linear;
+}
+
+.name-hexagon-svg {
+  /* animation: rotate 5s ease 2s infinite; */
+  filter: drop-shadow(0px 10px 8px rgba(0, 0, 0, 0.10));
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
+
+.svg-container {
+  position: relative;
+  margin-right: 1.5rem;
+  animation: scaleIn 250ms ease;
+  
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(0)
+  }
+
+  75% {
+    transform: rotate(-45deg)
+  }
+  100% {
+    transform:  rotate(0)
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+.svg-name {
+  position: absolute;  
+  left: 50%;
+  color: #161D2D;
+  top: 50%;
+  width: calc(100% - 2rem);
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 1.125rem;
+}
+
+.animal-container {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 1000;
+  overflow: auto;
+  border-radius: 100%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-sizing: content-box;
+  /* background:; */
+  padding: 0.25rem;
+  bottom: 0.5rem;
+  left: 59%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-container img {
+  object-fit: contain;
+  width: 2.25rem;
+  height: 2.25rem;
+}
