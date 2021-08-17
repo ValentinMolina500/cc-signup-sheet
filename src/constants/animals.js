@@ -13,50 +13,43 @@ import dragonImage from "../images/dragon.png"
 export const ANIMALS = [
   {
     name: "Bird",
-    image: birdImage
+    image: birdImage,
+    bgColor: "rgb(224, 180, 91)"
   },
   {
     name: "Whale",
-    image: whaleImage
+    image: whaleImage,
+
+    bgColor: "rgb(50, 172, 252)"
   }, 
   {
     name: "Cat",
-    image: catImage
+    image: catImage,
+    bgColor: "rgb(180, 148, 92)"
   },
   {
     name: "Hen",
-    image: henImage
+    image: henImage,
+    bgColor: "rgb(240, 150, 8)",
   },
   {
     name: "Koala",
-    image:koalaImage
+    image:koalaImage,
+    bgColor: "rgb(126, 206, 132)"
   },
   {
     name: "Elephant",
-    image: elephantImage
+    image: elephantImage,
+    bgColor: "rgb(225, 171, 29)"
   },
   {
     name: "Dog",
-    image: dogImage
+    image: dogImage,
+    bgColor: "rgb(204, 108, 53)"
   },
   {
     name: "Mouse",
-    image: mouseImage
+    image: mouseImage,
+    bgColor: "rgb(92, 134, 162)"
   },
-  // {
-  //   name: "Unicorn",
-  //   image: unicornImage
-  // },
-  // {
-  //   name: "Beaver",
-  //   image: beaverImage
-  // },
-  // {
-  //   name: "Octopus",
-  //   image: octopusImage
-  // },
-  // {
-  //   name: "Dragon",
-  //   image: dragonImage
-  // }
 ]

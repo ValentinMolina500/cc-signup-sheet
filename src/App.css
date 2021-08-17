@@ -72,6 +72,33 @@ pre {
   color: #161D2D;
 }
 
+.name-ticker .name-ticker-msg-container {
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background: #161D2D;
+  border-radius: 0 0 0.25rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 0.5rem;
+}
+.name-ticker .name-ticker-msg {
+  font-size: 1rem;  
+  color: white;
+}
+
+.name-ticker .name-ticker-msg-container .live-span {
+    font-size: 0.875rem;
+    color: white;
+    background: rgba(255,111,145,1);
+    margin-left: 0.5rem;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    /* animation: opacityFade 2s linear infinite; */
+
+}
 .input-control {
   width: 100%;
   color: #161d2d;
@@ -83,11 +110,21 @@ pre {
   border-radius: 0.375rem;
 }
 
+.input-control.has-error {
+  border: 2px solid #E53E3E;
+}
 .input-control:focus {
   outline: 0;
+}
+
+.input-control:focus:not(.has-error) {
+
   border: 2px solid rgba(255,111,145,1);
 }
 
+.input-control.has-error:focus {
+  border: 2px solid #9B2C2C;
+}
 .submit-btn {
   border-radius: 12rem;
   appearance: none;
@@ -163,4 +200,36 @@ pre {
 
 .image-grid .animal-grid-item span {
   font-size: 0.875rem;
+}
+
+@keyframes opacityFade {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.input-error-text {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: #E53E3E;
+  animation: fadeIn 250ms ease;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
