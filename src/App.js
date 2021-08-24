@@ -1,9 +1,12 @@
 import { render } from "@testing-library/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import NameTicker from "./components/NameTicker";
 import { ANIMALS } from "./constants/animals";
 import confetti from "canvas-confetti";
+import firebase from "./utils/firebase"
+
+import APP_LOGO from "./images/c2csg.png";
 
 const COLOR_PALETTE = [
   "#845EC2",
@@ -28,9 +31,19 @@ function App() {
 
   const [animal, setAnimal] = useState("");
 
+  useEffect(() => {
+
+    /* Run this code once, when this app start */
+    firebase.onPeopleChange((data) => {
+     
+      setPeople(oldPeople => oldPeople.concat(data.val()))
+    })
+    
+  }, []);
+
   const validate = () => {
     let hasError = false;
-
+    
     if (name === "") {
       setNameError("Please enter a name!");
       hasError = true;
@@ -51,6 +64,12 @@ function App() {
     return !hasError;
   };
 
+  const resetInputs = () => {
+    setName("");
+    setEmail("");
+    setAnimal(null);
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -59,21 +78,18 @@ function App() {
       return;
     }
 
-    setPeople(
-      people.concat({
-        name,
-        email,
-        animal,
-        bg: COLOR_PALETTE[getRandomInt(0, COLOR_PALETTE.length)],
-      })
-    );
+    const person = {
+      name,
+      email,
+      animal,
+    }
 
-    /* npm package */
     confetti();
 
-    setName("");
-    setEmail("");
-    setAnimal(null);
+    /* No error handling : ) */
+    firebase.addPerson(person);
+
+    resetInputs();
   };
 
   const renderAnimals = () => {
@@ -122,11 +138,19 @@ function App() {
           </div>
         )}
       </div>
+
+
       <main className="main-form-container">
-        <form onSubmit={onSubmit}>
-          <h1 className="form-heading">
-            <i>Coding Cougs</i> Sign Up Sheet
-          </h1>
+        <form className="main-form-wrapper" onSubmit={onSubmit}>
+
+          <div className="flex-container">
+            <img src={APP_LOGO} className="app-logo" />
+            
+            <h1 className="form-heading">
+              <i>Coding Cougs</i> Sign Up Sheet
+            </h1>
+          </div>
+         
 
           <div className="input-wrapper">
             <label htmlFor="name" className="input-label">Preferred Name</label>
@@ -158,7 +182,9 @@ function App() {
             </label>
             <div className="image-grid">{renderAnimals()}</div>
           </div>
+
           <input class="submit-btn" type="submit" value="Sign Up" />
+
         </form>
       </main>
     </div>

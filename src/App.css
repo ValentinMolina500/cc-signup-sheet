@@ -17,30 +17,24 @@ pre {
 
 
 .name-ticker {
-  /* position: fixed;
-  top: 0;
-  
-  padding: 2rem;
-  width: max-content;
-  animation: ticker 2s linear; */
   position: fixed;
   padding: 0.5rem 0;
   background: rgba(255, 255, 255, 0.08);
-  /* background: rgba(255, 255, 255, 0.1); */
   width: 100%;
   overflow: hidden;
   padding-left: 100%;
   z-index: 10;
   box-sizing: content-box;
 }
+
 .main-form-container {
   display: grid;
   grid-row: 1;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   place-items: center;
- 
 }
+
 .main-form-container > form {
   box-shadow:  0 25px 50px -12px rgba(0, 0, 0, 0.25);
   background: white;
@@ -55,13 +49,11 @@ pre {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 1.75rem;
-  margin-bottom: 2rem;
   color: #161D2D;
 }
 
 .input-wrapper {
   margin-bottom: 1rem;
-
 }
 
 .input-label {
@@ -96,9 +88,8 @@ pre {
     margin-left: 0.5rem;
     border-radius: 0.25rem;
     padding: 0.25rem;
-    /* animation: opacityFade 2s linear infinite; */
-
 }
+
 .input-control {
   width: 100%;
   color: #161d2d;
@@ -117,14 +108,10 @@ pre {
   outline: 0;
 }
 
-.input-control:focus:not(.has-error) {
-
+.input-control:focus {
   border: 2px solid rgba(255,111,145,1);
 }
 
-.input-control.has-error:focus {
-  border: 2px solid #9B2C2C;
-}
 .submit-btn {
   border-radius: 12rem;
   appearance: none;
@@ -232,4 +219,21 @@ pre {
   100% {
     opacity: 1;
   }
+}
+
+.app-logo { 
+  width: 48px;
+  margin-right: 1rem;
+}
+
+.main-form-wrapper {
+  position: relative;
+
+}
+
+.flex-container {
+  display: flex;
+  margin-bottom: 2rem;
+
+  align-items: center;
 }
